@@ -2,19 +2,21 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script
+      src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+      defer
+    ></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/output.css" />
     <title>Document</title>
   </head>
-  <body
-    class="w-full h-screen bg-[url(/images/back.jpg)] bg-no-repeat bg-cover"
-  >
+  <body class="w-full h-screen">
     <div
-      class="w-full h-full bg-black/75 flex flex-col items-start justify-between py-8 px-16"
+      class="w-full h-full bg-black/75 flex flex-col items-start justify-between p-6 lg:py-8 lg:px-16"
     >
       <div class="w-full flex items-center justify-between">
         <p class="text-xl font-semibold text-white">LOGO DESIGN</p>
-        <nav>
+        <nav class="hidden lg:block">
           <ul class="flex items-center gap-8">
             <li class="text-lg text-white">Home</li>
             <li class="text-lg text-white">Our services</li>
@@ -22,12 +24,54 @@
             <li class="text-lg text-white">Contact Us</li>
           </ul>
         </nav>
+
+        <div x-data="{ open: false }" class="lg:hidden">
+          <button @click="open = true" class="lg:hidden cursor-pointer">
+            <img src="./images/menu.svg" class="w-12" alt="" />
+          </button>
+          <!-- دکمه باز کردن منو -->
+          <!-- <button
+            @click="open = true"
+            class="p-3 bg-blue-600 text-white rounded-md fixed top-4 right-4 z-50"
+          >
+            ☰
+          </button> -->
+
+          <!-- پس‌زمینه تیره -->
+          <div
+            x-show="open"
+            @click="open = false"
+            class="fixed inset-0 bg-black/50 z-40"
+          ></div>
+
+          <!-- منوی بازشو -->
+          <div
+            x-show="open"
+            x-transition
+            class="fixed top-20 right-16 w-64 h-fit bg-white shadow-lg p-5 z-50 rounded-lg"
+          >
+            <button
+              @click="open = false"
+              class="text-rose-600 text-lg font-bold"
+            >
+              ✕
+            </button>
+            <ul class="mt-5 space-y-6">
+              <li class="text-lg text-black">Home</li>
+              <li class="text-lg text-black">Our services</li>
+              <li class="text-lg text-black">About Us</li>
+              <li class="text-lg text-black">Contact Us</li>
+            </ul>
+          </div>
+        </div>
       </div>
       <div class="w-full flex flex-col items-start">
-        <h1 class="text-[120px] text-white font-semibold leading-[160px]">
+        <h1
+          class="text-[40px] lg:text-[120px] text-white font-semibold lg:leading-[160px]"
+        >
           Influencer Accounting<br />Made Simple.
         </h1>
-        <p class="text-white text-2xl font-semibold mt-8">
+        <p class="text-white text-xl lg:text-2xl font-semibold mt-8">
           We make accounting simple, tax stress-free, and weaith-building<br />achievable
           for influencers, creators, and digital entreperneurs.
         </p>
@@ -37,15 +81,17 @@
           Book your free call
           <img src="./images/arrow.svg" class="w-5" alt="" />
         </button>
-        <div class="w-full mt-12 flex items-center justify-center gap-4">
-          <img src="./images/tik_logo.png" alt="" class="w-28" />
-          <img src="./images/twitch_logo.png" alt="" class="w-28" />
-          <img src="./images/youtube_logo.png" alt="" class="w-28" />
-          <img src="./images/onlyfans_logo.png" alt="" class="w-28" />
-          <img src="./images/insta_logo.png" alt="" class="w-28" />
-          <img src="./images/kick_logo.png" alt="" class="w-28" />
-          <img src="./images/rumble_logo.png" alt="" class="w-28" />
-          <img src="./images/fanvue_logo.png" alt="" class="w-28" />
+        <div
+          class="w-full mt-12 flex flex-wrap items-center justify-center gap-4"
+        >
+          <img src="./images/tik_logo.png" alt="" class="w-16 lg:w-28" />
+          <img src="./images/twitch_logo.png" alt="" class="w-16 lg:w-28" />
+          <img src="./images/youtube_logo.png" alt="" class="w-16 lg:w-28" />
+          <img src="./images/onlyfans_logo.png" alt="" class="w-16 lg:w-28" />
+          <img src="./images/insta_logo.png" alt="" class="w-16 lg:w-28" />
+          <img src="./images/kick_logo.png" alt="" class="w-16 lg:w-28" />
+          <img src="./images/rumble_logo.png" alt="" class="w-16 lg:w-28" />
+          <img src="./images/fanvue_logo.png" alt="" class="w-16 lg:w-28" />
         </div>
       </div>
     </div>
